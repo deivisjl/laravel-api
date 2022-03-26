@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('oauth/token','\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+
+Route::resource('/users', UserController::class);
+Route::get('/users/me', UserController::class,'me');
